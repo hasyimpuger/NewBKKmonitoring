@@ -34,14 +34,14 @@ else{
 					<section class=\"content-header\">
 					  <h1>
 						Data Guru
-						
+
 					  </h1>
 					  <ol class=\"breadcrumb\">
 						<li><a href=\"?module=beranda\"><i class=\"fa fa-dashboard\"></i> Home</a></li>
 						<li class=\"active\">Data Guru</li>
 					  </ol>
 					</section>
-			<section class=\"content\">		
+			<section class=\"content\">
 			<div class=\"box\">
 				<div class=\"box-header\">
 					<a class=\"btn btn-success\" onclick=window.location.href=\"?module=guru&act=tambahguru\">
@@ -83,7 +83,7 @@ else{
                else{
                		echo "<td><a class='btn btn-danger'>$t[status_aktif]</a></td>";
                }
-			echo "                      
+			echo "
        		<td>
             <a class=\"btn btn-info\" href=\"?module=guru&act=editguru&id=$t[id_guru]\">
                 <i class=\"glyphicon glyphicon-edit icon-white\"></i>
@@ -94,12 +94,12 @@ else{
                 Delete
             </a>
             </td>
-          </tr>";	 
+          </tr>";
           $no++;
 		}
 		echo "</tbody>
-		</table>";  
-		
+		</table>";
+
 			echo "</div>
 			</div>
 			</section>";
@@ -117,7 +117,7 @@ else{
 						<li class=\"active\">Data Guru</li>
 					  </ol>
 					</section>";
-		echo "<section class=\"content\">		
+		echo "<section class=\"content\">
 			<div class=\"box\">
 				<div class=\"box-header with-border\">
 					  <div class=\"box-tools pull-right\">
@@ -127,7 +127,7 @@ else{
 						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\">
 						  <i class=\"fa fa-times\"></i></button>
 					  </div>";
-		echo " <div class=\"box-body\">  
+		echo " <div class=\"box-body\">
 			  <!-- form start -->
             <form class=\"form-horizontal\" action=\"$aksi?module=guru&act=input\" method=\"POST\" enctype='multipart/form-data'>
               <div class=\"box-body\">
@@ -150,7 +150,8 @@ else{
 
               			<tr>
               				<th width='200px' scope='row'>Alamat</th><td><select name='kelamin' >
-              					<option value='pria'>Pria</option>
+												<option value=\"0\">--Pilih Data--</option>
+												<option value='pria'>Pria</option>
               					<option value='wanita'>Wanita</option>
               					</select>
               				</td>
@@ -171,15 +172,15 @@ else{
                 <button type=\"submit\" class=\"btn btn-info pull-right\">Save</button>
               </div>
               <!-- /.box-footer -->
-            </form>	  
+            </form>
         </div>
         <!-- /.box-body -->
 		</div>
-		</section>";	
+		</section>";
 
 		break;
 
-		//update form 
+		//update form
 		case "editguru":
 			$tampil = "SELECT id_guru, nip, nama_guru, password, alamat, kelamin,no_telepon, status_aktif FROM guru WHERE id_guru = '$_GET[id]'";
 			$query = mysqli_query($koneksi, $tampil);
@@ -195,7 +196,7 @@ else{
 						<li class=\"active\">Data Guru</li>
 					  </ol>
 					</section>";
-		echo "<section class=\"content\">		
+		echo "<section class=\"content\">
 			<div class=\"box\">
 				<div class=\"box-header with-border\">
 					<h3 class=\"box-title\">Update Data Guru</h3>
@@ -206,7 +207,7 @@ else{
 						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\">
 						  <i class=\"fa fa-times\"></i></button>
 					  </div>";
-		echo " <div class=\"box-body\">  
+		echo " <div class=\"box-body\">
 			  <!-- form start -->
             <form class=\"form-horizontal\" action=\"$aksi?module=guru&act=update\" method=\"POST\" enctype='multipart/form-data'>
             <input type='hidden' name='id' value='$h[id_guru]'>
@@ -250,7 +251,7 @@ else{
               				<th width='200px' scope='row'>Status</th><td><input name='status' type='radio' value='Aktif'>Aktif | <input name='status' type='radio' value='Tidak' checked>Tidak</td>
               			</tr>";
               			}
-              			
+
               		echo "</table>
               	</div>
               </div><!-- /.box-body -->
@@ -259,11 +260,11 @@ else{
                 <button type=\"submit\" class=\"btn btn-info pull-right\">Save</button>
               </div>
               <!-- /.box-footer -->
-            </form>	  
+            </form>
         </div>
         <!-- /.box-body -->
 		</div>
-		</section>";	
+		</section>";
 
 		break;
 

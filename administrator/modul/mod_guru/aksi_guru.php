@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if(empty($_SESSION['namauser']) AND empty($_SESSION['passuser'])){
 	echo "<link href=\"../../css/style.css\" rel=\"stylesheet\" type=\"text/css\"  media=\"all\" />
@@ -29,9 +29,9 @@ else{
 	$module = $_GET['module'];
 	$act 	= $_GET['act'];
 
-	//input 
+	//input
 	if ($module=='guru' AND $act =='input') {
-			
+			echo "Text";
 
 		$input = "INSERT guru SET nip 		= '$_POST[nip]',
 							nama_guru	= '$_POST[nama_guru]',
@@ -41,17 +41,17 @@ else{
 							no_telepon	= '$_POST[no_telepon]',
 							status_aktif = '$_POST[status]'";
 		mysqli_query($koneksi, $input);
-		header("location:../../media.php?module=".$module);
+		//header("location:../../media.php?module=".$module);
 	}
-	
-	//DELETE 
+
+	//DELETE
 	elseif ($module=='guru' AND $act =='delete') {
 		$delete = "DELETE FROM guru WHERE id_guru = '$_GET[id]'";
 		mysqli_query($koneksi, $delete);
 		header("location:../../media.php?module=".$module);
 	}
 
-	//UPDATE 
+	//UPDATE
 	elseif ($module =='guru' AND $act=='update') {
 		$password = $_POST['password'];
 		if (!empty($password)) {
@@ -75,6 +75,6 @@ else{
 		}
 		mysqli_query($koneksi, $update);
 		header("location:../../media.php?module=".$module);
-		
+
 	}
 }

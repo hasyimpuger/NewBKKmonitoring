@@ -1,4 +1,4 @@
-<?php 
+<?php
 	if(empty($_SESSION['leveluser']) AND empty($_SESSION['passuser'])){
 		echo "<link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"  media=\"all\" />
 		<!--start-wrap--->
@@ -25,43 +25,43 @@
 	}
 	else {
 		include "../config/connection.php";
-		
+
 		if($_GET['module']=='beranda'){
 			if($_SESSION['leveluser']=='admin' OR $_SESSION['leveluser']=='user'){
 				include "modul/mod_beranda/beranda.php";
 			}
 		}
 
-	
-		
+
+
 		elseif($_GET['module']=='modul'){
 			if($_SESSION['leveluser']=='admin'){
 				include "modul/mod_modul/modul.php";
 			}
 		}
-		
-		
-		
+
+
+
 		elseif($_GET['module']=='user'){
 			if($_SESSION['leveluser']=='admin' OR $_SESSION['leveluser']=='user'){
 				include "modul/mod_user/user.php";
 			}
 		}
-		
-		
+
+
 		elseif($_GET['module']=='tahunajaran'){
 			if($_SESSION['leveluser']=='admin'){
-				include "modul/mod_tahunajaran/tahunajaran.php";		
+				include "modul/mod_tahunajaran/tahunajaran.php";
 			}
 		}
 
 		//modul guru
-		// elseif ($_GET['module']=='guru') {
-		// 	if ($_SESSION['leveluser']=='admin' OR $_SESSION['leveluser']=='user') {
-		// 		include "modul/mod_guru/guru.php";
-		// 	}
-		// }
-		
+		elseif ($_GET['module']=='guru') {
+			if ($_SESSION['leveluser']=='admin' OR $_SESSION['leveluser']=='user') {
+				include "modul/mod_guru/guru.php";
+			}
+		}
+
 		elseif ($_GET['module']=='siswa') {
 			if ($_SESSION['leveluser']=='admin') {
 				include "modul/mod_siswa/siswa.php";
@@ -85,7 +85,7 @@
 				include "modul/mod_pembimbing/pembimbing.php";
 			}
 		}
-		
-		
+
+
 	}
 ?>
